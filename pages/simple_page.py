@@ -1,13 +1,10 @@
 from playwright.sync_api import expect
+from pages.base_page import BasePage
 BUTTON = 'Создать сборку'
 TEXT = 'Конфигуратор ПК'
 
-class SimplePage:
-    def __init__(self, page):
-        self.page = page
-
-    def open_main(self):
-        self.page.goto("https://www.citilink.ru/")
+class SimplePage(BasePage):
+    url = "https://www.citilink.ru/"
 
     def check_button_create(self):
         button = self.page.get_by_role("button", name=BUTTON)
